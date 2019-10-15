@@ -62,7 +62,7 @@ if &background == "dark"
   let s:visual          = s:light_purple
   let s:yellow          = s:light_yellow
 else
-  let s:bg              = s:actual_white
+  let s:bg              = s:white
   let s:bg_subtle       = s:light_gray
   let s:bg_very_subtle  = s:lightest_gray
   let s:norm            = s:light_black
@@ -97,7 +97,7 @@ endif
 call s:h("Cursor",        {"bg": s:purple, "fg": s:norm })
 call s:h("Comment",       {"fg": s:bg_subtle, "gui": "italic"})
 
-call s:h("Constant",      {"fg": s:purple})
+call s:h("Constant",      {"fg": s:green})
 hi! link Character        Constant
 hi! link Number           Constant
 hi! link Boolean          Constant
@@ -108,14 +108,13 @@ hi! link String           Constant
 hi! link Identifier       Normal
 hi! link Function         Identifier
 
-call s:h("Statement",     {"fg": s:norm_subtle})
+call s:h("Statement",     {"fg": s:norm, "cterm": "bold", "gui": "bold"})
 hi! link Conditonal       Statement
 hi! link Repeat           Statement
 hi! link Label            Statement
 hi! link Keyword          Statement
 hi! link Exception        Statement
-
-call s:h("Operator",      {"fg": s:norm, "cterm": "bold", "gui": "bold"})
+hi! link Operator         Statement
 
 call s:h("PreProc",     {"fg": s:norm_subtle})
 hi! link Include          PreProc
