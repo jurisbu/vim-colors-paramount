@@ -39,7 +39,7 @@ let s:blue            = { "gui": "#20BBFC", "cterm": "12"  }
 let s:light_blue      = { "gui": "#b6d6fd", "cterm": "153" }
 let s:dark_cyan       = { "gui": "#20A5BA", "cterm": "6"   }
 let s:light_cyan      = { "gui": "#4FB8CC", "cterm": "14"  }
-let s:dark_green      = { "gui": "#10A778", "cterm": "2"   }
+let s:dark_green      = { "gui": "#196647", "cterm": "2"   }
 let s:light_green     = { "gui": "#5FD7A7", "cterm": "10"  }
 let s:dark_purple     = { "gui": "#af5fd7", "cterm": "134" }
 let s:light_purple    = { "gui": "#a790d5", "cterm": "140" }
@@ -64,7 +64,7 @@ if &background == "dark"
 else
   let s:bg              = s:white
   let s:bg_subtle       = s:light_gray
-  let s:bg_very_subtle  = s:lightest_gray
+  let s:bg_very_subtle  = s:lighter_gray
   let s:norm            = s:light_black
   let s:norm_subtle     = s:medium_gray
   let s:purple          = s:dark_purple
@@ -95,7 +95,7 @@ if &background != s:background
 endif
 
 call s:h("Cursor",        {"bg": s:purple, "fg": s:norm })
-call s:h("Comment",       {"fg": s:bg_subtle, "gui": "italic"})
+call s:h("Comment",       {"fg": s:norm_subtle, "gui": "italic"})
 
 call s:h("Constant",      {"fg": s:green})
 hi! link Character        Constant
@@ -221,3 +221,8 @@ hi link GitGutterAdd                LineNr
 hi link GitGutterDelete             LineNr
 hi link GitGutterChange             LineNr
 hi link GitGutterChangeDelete       LineNr
+
+" Python
+hi! link pythonInclude    Statement
+hi! link pythonBuiltin    Statement
+call s:h("pythonBuiltin",        {"fg": s:darker_blue})
